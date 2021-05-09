@@ -16,11 +16,15 @@ class device:
         self.lon = lon
 
     def isNear(self,lat,lon,cutoff):
-        point = (lat,lon)
-        device = (self.lat,self.lon)
-        distance = haversine(point, device, unit='m')
+        distance = self.getDist(lat,lon)
         print(f'(LT,LN) Device: {self.lat},{self.lon} - Landmark: {lat},{lon} - Distance is:', distance)
         return distance<=cutoff
+
+    def getDist(self, lat, lon):
+        point = (lat, lon)
+        device = (self.lat, self.lon)
+        distance = haversine(point, device, unit='m')
+        return distance
 
 
 

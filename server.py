@@ -35,7 +35,7 @@ def getNear():
     if args is None or lat is None or uid is None:
         return jsonify('Error whilst parsing args')
 
-    print(f'Got Request for coords lat {lat} lon {lon} from device {uid}')
+    print(f'Updating location of device {uid} to: lat {lat} lon {lon} ')
 
     device.getDevice(devices,uid).updateLoc(lat,lon)
 
@@ -52,7 +52,9 @@ assets = {
 
 @app.route('/isNear')
 def isNear():
-
+    # resp = {'near': False, 'distance': 99}
+    # print('Returning', resp)
+    # return jsonify(resp)
     args = request.args
     loc = args.get('loc').split('/')[-1].split('.')[0].lower()
     uid = args.get('uid')
@@ -60,15 +62,20 @@ def isNear():
         return jsonify('Error whilst parsing args')
 
     print(f'Got Request for asset check: \'{loc}\'')
-
+    distance = device.getDevice(devices, uid).getDist(assets[loc]['lat'], assets[loc]['lon'])
+    # distance = 5
 
     if loc in assets and device.getDevice(devices,uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
-        print('Returning True')
-        return jsonify(True)
+        
+        resp = {'near': True, 'distance': distance}
+        print('Returning',resp)
+        return jsonify(resp)
 
+    
 
-    print('Returning False')
-    return jsonify(False)
+    resp = {'near': False, 'distance': distance}
+    print('Returning', resp)
+    return jsonify(resp)
 
 
 @app.route('/Android/<path:filename>', methods=['GET', 'POST'])
