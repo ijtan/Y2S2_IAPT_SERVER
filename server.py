@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 import json
 import os
 from flask.helpers import send_from_directory
-import numpy as numpy 
+import numpy as numpy
 import device
 
 
@@ -15,14 +15,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 devices = {}
 
 
-
-
-
 @app.route('/')
 def root():
     return jsonify('Welcome to Ethan\'s IAPT Project!')
-
-
 
 
 @app.route('/getNear')
@@ -37,17 +32,17 @@ def getNear():
 
     print(f'Updating location of device {uid} to: lat {lat} lon {lon} ')
 
-    device.getDevice(devices,uid).updateLoc(lat,lon)
+    device.getDevice(devices, uid).updateLoc(lat, lon)
 
-    
     return jsonify('Updated Device!')
 
 # valid = ['sphere ad']
 
-assets = {
-    'sphere add': {'lat': 35.883511, 'lon': 14.394178, 'rad':20 , 'desc': 'Earth spinnng shpere'}
-}
 
+assets = {
+    'sphere add': {'lat': 35.883511, 'lon': 14.394178, 'rad': 5, 'desc': 'Earth spinnng shpere'},
+    'starbucks_addr': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'desc': 'Starbucks!'} 
+}
 
 
 @app.route('/isNear')
@@ -62,18 +57,19 @@ def isNear():
         return jsonify('Error whilst parsing args')
 
     print(f'Got Request for asset check: \'{loc}\'')
-    distance = device.getDevice(devices, uid).getDist(assets[loc]['lat'], assets[loc]['lon'])
+    distance = device.getDevice(devices, uid).getDist(
+        assets[loc]['lat'], assets[loc]['lon'])
     # distance = 5
+    isNear = False;
+    if loc in assets and device.getDevice(devices, uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
+        isNear=True
 
-    if loc in assets and device.getDevice(devices,uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
-        
-        resp = {'near': True, 'distance': distance}
-        print('Returning',resp)
-        return jsonify(resp)
-
-    
-
-    resp = {'near': False, 'distance': distance}
+    resp = {
+        'near': isNear,
+        'distance': distance,
+        'locX': assets[loc]['lat'],
+        'locY': assets[loc]['lon']
+    }
     print('Returning', resp)
     return jsonify(resp)
 
@@ -83,8 +79,9 @@ def download(filename):
     uploads = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
     return send_from_directory(directory=uploads, filename=filename)
 
+
 def run():
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
 
 
 if __name__ == '__main__':
