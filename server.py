@@ -39,9 +39,14 @@ def getNear():
 # valid = ['sphere ad']
 
 
+# assets = {
+#     'geographic museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'desc': 'Earth spinnng shpere'},
+#     'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'desc': 'Starbucks!'}
+# }
+
 assets = {
-    'sphere add': {'lat': 35.883511, 'lon': 14.394178, 'rad': 5, 'desc': 'Earth spinnng shpere'},
-    'starbucks_addr': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'desc': 'Starbucks!'} 
+    'geographic museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'desc': 'Earth spinnng shpere', 'imageurl': '', 'display_name': ''},
+    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'desc': 'Starbucks!', 'imageurl': '', 'display_name': ''}
 }
 
 
@@ -65,10 +70,13 @@ def isNear():
         isNear=True
 
     resp = {
-        'near': isNear,
-        'distance': distance,
+        'near': isNear,        
         'locX': assets[loc]['lat'],
-        'locY': assets[loc]['lon']
+        'locY': assets[loc]['lon'],
+        'title': assets[loc]['display_name'],
+        'description': assets[loc]['desc'],
+        'image_url': assets[loc]['imageurl']
+
     }
     print('Returning', resp)
     return jsonify(resp)
