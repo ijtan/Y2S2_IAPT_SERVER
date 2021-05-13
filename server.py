@@ -43,7 +43,7 @@ def getKeys():
     uid = args.get('uid')
     for key, data in assets.items():
         distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
-        if distance <= 100000:
+        if distance <= ((3)*1000):
             keys.append(key)
     # print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
 

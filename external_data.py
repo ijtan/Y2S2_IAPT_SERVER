@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 _parsed_entries = None
 
@@ -36,8 +37,10 @@ def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
         entry_info['lat'] = float(entry["Geolocation Coordinates"].split(',')[0])
         entry_info['lon'] = float(entry["Geolocation Coordinates"].split(',')[1])
 
-        entry["Heritage Site Description"] = ''.join([i for i in entry["Heritage Site Description"] if i.isalpha()])
-        entry_info['title'] = entry["Heritage Site Description"]
+        #entry["Heritage Site Description"] = ''.join([i for i in entry["Heritage Site Description"] if isinstance(i, collections.Hashable)])
+        title = entry['Heritage Site Description']
+        
+        entry_info['title'] = title
         entry_info['short_desc'] = f"A {entry['Type'].lower()} found in {entry['Location'].lower()}"
         entry_info['long_desc']  = entry_info['short_desc']
         entry_info['imageurl'] = ''
