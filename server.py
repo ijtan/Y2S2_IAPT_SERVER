@@ -9,16 +9,16 @@ import unesco_data
 
 
 assets = {
-    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'desc': 'The National History Museum of malta!'},
-    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'desc': 'Grab a coffee at Starbucks!'}
+    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'short_desc': 'The National History Museum of malta!', 'long_desc':''},
+    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc':''}
 }
 
 # newEntries = []
 for entry in unesco_data.getData().values():
-    newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'], 'desc': entry['desc']}
-    assets[entry['title']] = newentry
-# assets.update()
+    newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'], 'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'],'imageurl': entry['imageurl']}
 
+    assets[entry['title'].lower()] = newentry
+# assets.update()
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'resources/Android/'
@@ -42,10 +42,9 @@ def getKeys():
     uid = args.get('uid')
     for key, data in assets.items():
         distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
-        # print(device.getDevice(devices, uid).lat,)
-        if distance <= 1000:
+        if distance <= 100000:
             keys.append(key)
-    print(f'Returning {len(keys)} keys to device: {uid}')
+    print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
     return jsonify({'landmarks': keys})
 
 @app.route('/getNear')
@@ -83,13 +82,14 @@ def isNear():
     isNear = False;
     if loc in assets and device.getDevice(devices, uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
         isNear=True
-    isNear = False
+    # isNear = False
     resp = {
         'near': isNear,        
         'locX': assets[loc]['lat'],
         'locY': assets[loc]['lon'],
         'title': assets[loc]['display_name'],
-        'description': assets[loc]['desc'],
+        'short_description': assets[loc]['short_desc'],
+        'long_description': assets[loc]['long_desc'],
         'image_url': assets[loc]['imageurl']
 
     }
