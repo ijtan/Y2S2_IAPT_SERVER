@@ -20,6 +20,10 @@ def root():
     return jsonify('Welcome to Ethan\'s IAPT Project!')
 
 
+@app.route('/getKeys')
+def getKeys():
+    return jsonify({'landmarks': list(assets.keys())})
+
 @app.route('/getNear')
 def getNear():
     args = request.args
@@ -45,8 +49,8 @@ def getNear():
 # }
 
 assets = {
-    'geographic museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'desc': 'Earth spinnng shpere', 'imageurl': '', 'display_name': ''},
-    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'desc': 'Starbucks!', 'imageurl': '', 'display_name': ''}
+    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'desc': 'The National History Museum of malta!'},
+    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'desc': 'Grab a coffee at Starbucks!'}
 }
 
 
@@ -68,7 +72,7 @@ def isNear():
     isNear = False;
     if loc in assets and device.getDevice(devices, uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
         isNear=True
-
+    isNear = False
     resp = {
         'near': isNear,        
         'locX': assets[loc]['lat'],
