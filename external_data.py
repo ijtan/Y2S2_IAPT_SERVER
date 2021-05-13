@@ -23,7 +23,7 @@ def read_unesco_file(path=os.path.join('resources', 'jsonified_unesco_data.json'
     return entries
 
 
-def read_council_file(path=os.path.join('resources', 'jsonified_unesco_data.json')):
+def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
     entries = {}
     data = []
     with open(path,encoding="utf-8") as json_file:
@@ -47,7 +47,8 @@ def getData():
     global _parsed_entries
     if _parsed_entries is None:
         _parsed_entries = read_unesco_file()
-        _parsed_entries.update(read_council_file)
+        _parsed_entries.update(read_council_file())
+        print(f'Externally retrieved {len(_parsed_entries)} entries')
 
     return _parsed_entries
 

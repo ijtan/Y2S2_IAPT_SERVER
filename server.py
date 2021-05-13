@@ -5,7 +5,7 @@ from flask.helpers import send_from_directory
 import numpy as numpy
 import device
 
-import unesco_data
+import external_data
 
 
 assets = {
@@ -15,7 +15,7 @@ assets = {
 }
 
 # newEntries = []
-for entry in unesco_data.getData().values():
+for entry in external_data.getData().values():
     newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'], 'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'],'imageurl': entry['imageurl']}
 
     assets[entry['title'].lower()] = newentry
@@ -45,7 +45,7 @@ def getKeys():
         distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
         if distance <= 100000:
             keys.append(key)
-    print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
+    # print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
 
     # keys = list(assets.keys())[:5]
     keys.append('north pole')
@@ -100,7 +100,7 @@ def isNear():
         'image_url': assets[loc]['imageurl']
 
     }
-    print('Returning', resp)
+    # print('Returning', resp)
     return jsonify(resp)
 
 
