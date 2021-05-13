@@ -33,6 +33,8 @@ def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
 
         entry_info['lat'] = float(entry["Geolocation Coordinates"].split(',')[0])
         entry_info['lon'] = float(entry["Geolocation Coordinates"].split(',')[1])
+
+        entry["Heritage Site Description"] = ''.join([i for i in entry["Heritage Site Description"] if i.isalpha()])
         entry_info['title'] = entry["Heritage Site Description"]
         entry_info['short_desc'] = f"A {entry['Type'].lower()} found in {entry['Location'].lower()}"
         entry_info['long_desc']  = entry_info['short_desc']
@@ -56,7 +58,9 @@ def getData():
 
 if __name__ == '__main__':
     entries = getData()
-    for coords,data in entries.items():
-        if "malta" in data['country'].lower():
-            print(data['title'])
-            print(f'Key is {coords}')
+
+    assets = {}
+    for entry in getData().values():
+        newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'], 'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'],'imageurl': entry['imageurl']}
+
+        assets[entry['title'].lower()] = newentry
