@@ -5,6 +5,20 @@ from flask.helpers import send_from_directory
 import numpy as numpy
 import device
 
+import unesco_data
+
+
+assets = {
+    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'desc': 'The National History Museum of malta!'},
+    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'desc': 'Grab a coffee at Starbucks!'}
+}
+
+# newEntries = []
+for entry in unesco_data.getData().values():
+    newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'], 'desc': entry['desc']}
+    assets[entry['title']] = newentry
+# assets.update()
+
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'resources/Android/'
@@ -22,7 +36,17 @@ def root():
 
 @app.route('/getKeys')
 def getKeys():
-    return jsonify({'landmarks': list(assets.keys())})
+    keys = []
+
+    args = request.args
+    uid = args.get('uid')
+    for key, data in assets.items():
+        distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
+        # print(device.getDevice(devices, uid).lat,)
+        if distance <= 1000:
+            keys.append(key)
+    print(f'Returning {len(keys)} keys to device: {uid}')
+    return jsonify({'landmarks': keys})
 
 @app.route('/getNear')
 def getNear():
@@ -39,19 +63,6 @@ def getNear():
     device.getDevice(devices, uid).updateLoc(lat, lon)
 
     return jsonify('Updated Device!')
-
-# valid = ['sphere ad']
-
-
-# assets = {
-#     'geographic museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'desc': 'Earth spinnng shpere'},
-#     'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'desc': 'Starbucks!'}
-# }
-
-assets = {
-    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'desc': 'The National History Museum of malta!'},
-    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'desc': 'Grab a coffee at Starbucks!'}
-}
 
 
 @app.route('/isNear')
