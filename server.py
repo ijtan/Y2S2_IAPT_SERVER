@@ -9,14 +9,15 @@ import external_data
 
 
 assets = {
-    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'short_desc': 'The National History Museum of malta!', 'long_desc':''},
-    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc':''},
-    'north pole': {'lat': 90, 'lon': 0, 'rad': 5, 'imageurl': '', 'display_name': 'North Pole!', 'short_desc': 'Chill!', 'long_desc':''}
+    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'short_desc': 'The National History Museum of malta!', 'long_desc': ''},
+    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc': ''},
+    'north pole': {'lat': 90, 'lon': 0, 'rad': 5, 'imageurl': '', 'display_name': 'North Pole!', 'short_desc': 'Chill!', 'long_desc': ''}
 }
 
 # newEntries = []
 for entry in external_data.getData().values():
-    newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'], 'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'],'imageurl': entry['imageurl']}
+    newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'],
+                'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'], 'imageurl': entry['imageurl']}
 
     assets[entry['title'].lower()] = newentry
 # assets.update()
@@ -35,6 +36,31 @@ def root():
     return jsonify('Welcome to Ethan\'s IAPT Project!')
 
 
+@app.route('/getFullNear')
+def getAllNear():
+    toRet = []
+
+    args = request.args
+    uid = args.get('uid')
+    for key, data in assets.items():
+        distance = device.getDevice(devices, uid).getDist(
+            data['lat'], data['lon'])
+        if distance <= ((3)*1000):
+            resp = {
+                'near': isNear,
+                'locX': data['lat'],
+                'locY': data['lon'],
+                'title': data['display_name'],
+                'short_description': data['short_desc'],
+                'long_description': data['long_desc'],
+                'image_url': data['imageurl']
+
+            }
+            toRet.append(resp)
+
+    return jsonify(toRet)
+
+
 @app.route('/getKeys')
 def getKeys():
     keys = []
@@ -42,7 +68,8 @@ def getKeys():
     args = request.args
     uid = args.get('uid')
     for key, data in assets.items():
-        distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
+        distance = device.getDevice(devices, uid).getDist(
+            data['lat'], data['lon'])
         if distance <= ((3)*1000):
             keys.append(key)
     # print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
@@ -50,8 +77,8 @@ def getKeys():
     # keys = list(assets.keys())[:5]
     keys.append('north pole')
 
-
     return jsonify({'landmarks': keys})
+
 
 @app.route('/getNear')
 def getNear():
@@ -85,13 +112,13 @@ def isNear():
     distance = device.getDevice(devices, uid).getDist(
         assets[loc]['lat'], assets[loc]['lon'])
     # distance = 5
-    isNear = False;
+    isNear = False
     if loc in assets and device.getDevice(devices, uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
-        isNear=True
+        isNear = True
     # isNear = True
     # isNear = False
     resp = {
-        'near': isNear,        
+        'near': isNear,
         'locX': assets[loc]['lat'],
         'locY': assets[loc]['lon'],
         'title': assets[loc]['display_name'],
