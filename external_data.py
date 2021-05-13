@@ -25,7 +25,7 @@ def read_unesco_file(path=os.path.join('resources', 'jsonified_unesco_data.json'
             entries[(entry_info['lat'], entry_info['lon'])] = entry_info
     return entries
 
-pattern = re.compile('([^\s\w]|_)+')
+pattern = re.compile('^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$')
 
 def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
     entries = {}
