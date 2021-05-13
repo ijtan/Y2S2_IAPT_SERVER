@@ -10,7 +10,8 @@ import unesco_data
 
 assets = {
     'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'short_desc': 'The National History Museum of malta!', 'long_desc':''},
-    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc':''}
+    'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc':''},
+    'north pole': {'lat': 90, 'lon': 0, 'rad': 5, 'imageurl': '', 'display_name': 'North Pole!', 'short_desc': 'Chill!', 'long_desc':''}
 }
 
 # newEntries = []
@@ -45,6 +46,11 @@ def getKeys():
         if distance <= 100000:
             keys.append(key)
     print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
+
+    # keys = list(assets.keys())[:5]
+    keys.append('north pole')
+
+
     return jsonify({'landmarks': keys})
 
 @app.route('/getNear')
@@ -82,6 +88,7 @@ def isNear():
     isNear = False;
     if loc in assets and device.getDevice(devices, uid).isNear(assets[loc]['lat'], assets[loc]['lon'], assets[loc]['rad']):
         isNear=True
+    # isNear = True
     # isNear = False
     resp = {
         'near': isNear,        
