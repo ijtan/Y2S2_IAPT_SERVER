@@ -25,6 +25,7 @@ def read_unesco_file(path=os.path.join('resources', 'jsonified_unesco_data.json'
             entries[(entry_info['lat'], entry_info['lon'])] = entry_info
     return entries
 
+pattern = re.compile('([^\s\w]|_)+')
 
 def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
     entries = {}
@@ -40,7 +41,9 @@ def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
         #entry["Heritage Site Description"] = ''.join([i for i in entry["Heritage Site Description"] if isinstance(i, collections.Hashable)])
         title = entry['Heritage Site Description']
         
-        entry_info['title'] = title
+        entry_info['title'] = pattern.sub('', title)
+
+
         entry_info['short_desc'] = f"A {entry['Type'].lower()} found in {entry['Location'].lower()}"
         entry_info['long_desc']  = entry_info['short_desc']
         entry_info['imageurl'] = ''
