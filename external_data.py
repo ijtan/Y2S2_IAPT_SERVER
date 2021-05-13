@@ -8,7 +8,9 @@ def read_unesco_file(path=os.path.join('resources', 'jsonified_unesco_data.json'
     entries = {}
     with open(path,encoding="utf-8") as json_file:
         data = json.load(json_file)
-        for entry in data['row']:            
+        for entry in data['row']:        
+            if 'malta' not in entry['states']:
+                continue    
             entry_info = {}
             entry_info['title'] = entry['site']
             # entry_info['country'] = entry['states']
