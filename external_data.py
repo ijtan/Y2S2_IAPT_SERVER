@@ -40,7 +40,9 @@ def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
 
         #entry["Heritage Site Description"] = ''.join([i for i in entry["Heritage Site Description"] if isinstance(i, collections.Hashable)])
         title = entry['Heritage Site Description']
-        
+        title=title.replace('.','')
+        title=title.replace('-','')
+        title=title.replace(',','')
         entry_info['title'] = pattern.sub('', title)
 
 
