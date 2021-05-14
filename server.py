@@ -45,7 +45,12 @@ def getAllNear():
     for key, data in assets.items():
         distance = device.getDevice(devices, uid).getDist(
             data['lat'], data['lon'])
-        if distance <= ((3)*1000):
+        if distance <= ((3)*1000) or key =='north pole':
+
+            isNear = False
+            if key in assets and device.getDevice(devices, uid).isNear(data['lat'], data['lon'], data['rad']):
+                isNear = True
+
             resp = {
                 'near': isNear,
                 'locX': data['lat'],
@@ -68,8 +73,7 @@ def getKeys():
     args = request.args
     uid = args.get('uid')
     for key, data in assets.items():
-        distance = device.getDevice(devices, uid).getDist(
-            data['lat'], data['lon'])
+        distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
         if distance <= ((3)*1000):
             keys.append(key)
     # print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')
