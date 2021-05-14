@@ -17,7 +17,7 @@ class device:
 
     def isNear(self,lat,lon,cutoff):
         distance = self.getDist(lat,lon)
-        print(f'(LT,LN) Device: {self.lat},{self.lon} - Landmark: {lat},{lon} - Distance is:', distance)
+        # print(f'(LT,LN) Device: {self.lat},{self.lon} - Landmark: {lat},{lon} - Distance is:', distance)
         return distance<=cutoff
 
     def getDist(self, lat, lon):
