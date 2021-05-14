@@ -38,7 +38,7 @@ def root():
 
 @app.route('/getFullNear')
 def getAllNear():
-    toRet = []
+    toRet = {}
 
     args = request.args
     uid = args.get('uid')
@@ -56,7 +56,7 @@ def getAllNear():
                 'image_url': data['imageurl']
 
             }
-            toRet.append(resp)
+            toRet[key] = (resp)
 
     return jsonify(toRet)
 
