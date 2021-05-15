@@ -8,19 +8,8 @@ import device
 import external_data
 
 
-assets = {
-    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 
-    'imageurl': [
-        'https://www.freeiconspng.com/uploads/art-history-museum-icon--4.png',
-        'https://thumbs.dreamstime.com/b/courtyard-main-entrance-to-national-museum-natural-history-mdina-medina-malta-188154273.jpg',
-        'https://universes.art/fileadmin/_processed_/f/2/csm_Nat-Mus-Natural-History-interior-1-A_3b2879ef50.jpg',
-        'https://heritagemalta.org/wp-content/uploads/2019/04/kf3a4554.jpg',
-        'https://heritagemalta.org/wp-content/uploads/2019/04/nmnh-butterflies--e1564653652275.jpg'
-     ], 'display_name': 'History Museum', 'short_desc': 'The National History Museum of Malta!',
-    'long_desc': 'This museum was estabilished in 1918, and it contains some of the most iconic findings in the history of this island. This is one of the hottest attrcations in mdina, as it contextualizes the whole country.'},
-    # 'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': [''], 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc': ''},
-    'north pole': {'lat': 90, 'lon': 0, 'rad': 5, 'imageurl': [''], 'display_name': 'North Pole!', 'short_desc': 'Chill!', 'long_desc': ''}
-}
+with open(os.path.join('resources', 'my_landmarks.json'), encoding="utf-8") as json_file:
+    assets = json.load(json_file)
 
 # newEntries = []
 for entry in external_data.getData().values():
@@ -53,7 +42,7 @@ def getAllNear():
     for key, data in assets.items():
         distance = device.getDevice(devices, uid).getDist(
             data['lat'], data['lon'])
-        if distance <= ((3)*1000) or key =='north pole':
+        if distance <= ((3)*1000) or key == 'north pole':
 
             isNear = False
             if key in assets and device.getDevice(devices, uid).isNear(data['lat'], data['lon'], data['rad']):
@@ -67,7 +56,7 @@ def getAllNear():
                 'short_description': data['short_desc'],
                 'long_description': data['long_desc'],
                 'image_urls': data['imageurl'],
-                'id':key
+                'id': key
 
             }
             toRet.append(resp)
@@ -82,7 +71,8 @@ def getKeys():
     args = request.args
     uid = args.get('uid')
     for key, data in assets.items():
-        distance = device.getDevice(devices, uid).getDist(data['lat'], data['lon'])
+        distance = device.getDevice(devices, uid).getDist(
+            data['lat'], data['lon'])
         if distance <= ((3)*1000):
             keys.append(key)
     # print(f'Returning {len(keys)} keys to device: {uid} at {device.getDevice(devices, uid).lat} {device.getDevice(devices, uid).lon}')

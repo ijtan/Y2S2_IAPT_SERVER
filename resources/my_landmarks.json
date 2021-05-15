@@ -1,0 +1,42 @@
+{
+    "history museum": {
+        "lat": 35.883511,
+        "lon": 14.394178,
+        "rad": 15,
+        "imageurl": [
+            "https://www.freeiconspng.com/uploads/art-history-museum-icon--4.png",
+            "https://thumbs.dreamstime.com/b/courtyard-main-entrance-to-national-museum-natural-history-mdina-medina-malta-188154273.jpg",
+            "https://universes.art/fileadmin/_processed_/f/2/csm_Nat-Mus-Natural-History-interior-1-A_3b2879ef50.jpg",
+            "https://heritagemalta.org/wp-content/uploads/2019/04/kf3a4554.jpg",
+            "https://heritagemalta.org/wp-content/uploads/2019/04/nmnh-butterflies--e1564653652275.jpg"
+        ],
+        "display_name": "History Museum",
+        "short_desc": "The National History Museum of Malta!",
+        "long_desc": "The National Museum of Natural History is a natural history museum in the mediaeval walled city of Mdina, Malta. It is housed in Palazzo Vilhena, a French Baroque palace rebuilt in 1726 by Grand Master Antonio Manoel de Vilhena to designs of Charles François de Mondion."
+    },
+    "mdina dungeons": {
+        "lat": 35.883511,
+        "lon": 14.394178,
+        "rad": 15,
+        "imageurl": [
+            "https://media-cdn.tripadvisor.com/media/photo-s/07/2b/58/99/mdina-dungeons.jpg",
+            "https://media-cdn.tripadvisor.com/media/photo-s/03/24/74/bc/mdina-dungeons.jpg",
+            "https://live.staticflickr.com/3010/2316944402_c0dcd10a7b_c.jpg",
+            "https://photo.cuboimages.it/getImageBin.asp?filename=MMA0232%2Ejpg"
+        ],
+        "display_name": "Mdina dunegons",
+        "short_desc": "The Mdina Dungeons Museum",
+        "long_desc": "This is not one for the faint hearted. The Mdina Dungeons Museum is a vivid and harrowing account of medieval events in Malta. These very underground passageways, chambers and cells were home to some of the darkest and most torturous measures taken in a bygone era."
+    },
+    "north pole": {
+        "lat": 90,
+        "lon": 0,
+        "rad": 5,
+        "imageurl": [
+            ""
+        ],
+        "display_name": "North Pole!",
+        "short_desc": "Chill!",
+        "long_desc": ""
+    }
+}
