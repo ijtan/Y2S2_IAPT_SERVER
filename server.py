@@ -9,10 +9,10 @@ import external_data
 
 
 assets = {
-    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': '', 'display_name': 'History Museum', 'short_desc': 'The National History Museum of Malta!', 
+    'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 'imageurl': ['https://www.freeiconspng.com/uploads/art-history-museum-icon--4.png', 'https://icon-library.com/images/museum-icon-png/museum-icon-png-0.jpg'], 'display_name': 'History Museum', 'short_desc': 'The National History Museum of Malta!',
     'long_desc': 'This museum was estabilished in 1918, and it contains some of the most iconic findings in the history of this island. This is one of the hottest attrcations in mdina, as it contextualizes the whole country.'},
-    # 'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': '', 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc': ''},
-    'north pole': {'lat': 90, 'lon': 0, 'rad': 5, 'imageurl': '', 'display_name': 'North Pole!', 'short_desc': 'Chill!', 'long_desc': ''}
+    # 'starbucks': {'lat': 35.883791, 'lon': 14.394039, 'rad': 5, 'imageurl': [''], 'display_name': 'Starbucks', 'short_desc': 'Grab a coffee at Starbucks!', 'long_desc': ''},
+    'north pole': {'lat': 90, 'lon': 0, 'rad': 5, 'imageurl': [''], 'display_name': 'North Pole!', 'short_desc': 'Chill!', 'long_desc': ''}
 }
 
 # newEntries = []
@@ -59,7 +59,7 @@ def getAllNear():
                 'title': data['display_name'],
                 'short_description': data['short_desc'],
                 'long_description': data['long_desc'],
-                'image_url': data['imageurl'],
+                'image_urls': data['imageurl'],
                 'id':key
 
             }

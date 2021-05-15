@@ -19,7 +19,7 @@ def read_unesco_file(path=os.path.join('resources', 'jsonified_unesco_data.json'
             entry_info['long_desc'] = entry['short_description']
             entry_info['lat'] = float(entry['latitude'])
             entry_info['lon'] = float(entry['longitude'])
-            entry_info['imageurl'] = entry['image_url']
+            entry_info['imageurl'] = [entry['image_url']]
             # entry_info['rad'] = 20
 
             entries[(entry_info['lat'], entry_info['lon'])] = entry_info
@@ -48,7 +48,7 @@ def read_council_file(path=os.path.join('resources', 'localCouncilData.json')):
 
         entry_info['short_desc'] = f"A {entry['Type'].lower()} found in {entry['Location'].lower()}"
         entry_info['long_desc']  = entry_info['short_desc']
-        entry_info['imageurl'] = ''
+        entry_info['imageurl'] = ['']
 
         entries[(entry_info['lat'], entry_info['lon'])] = entry_info
     return entries
