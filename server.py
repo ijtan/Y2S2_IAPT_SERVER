@@ -12,7 +12,7 @@ assets = {
     'history museum': {'lat': 35.883511, 'lon': 14.394178, 'rad': 15, 
     'imageurl': [
         'https://www.freeiconspng.com/uploads/art-history-museum-icon--4.png',
-        'https://upload.wikimedia.org/wikipedia/commons/e/e2/Natural_History_Museum_Mdina_%286810109710%29.jpg',
+        'https://thumbs.dreamstime.com/b/courtyard-main-entrance-to-national-museum-natural-history-mdina-medina-malta-188154273.jpg',
         'https://universes.art/fileadmin/_processed_/f/2/csm_Nat-Mus-Natural-History-interior-1-A_3b2879ef50.jpg',
         'https://heritagemalta.org/wp-content/uploads/2019/04/kf3a4554.jpg',
         'https://heritagemalta.org/wp-content/uploads/2019/04/nmnh-butterflies--e1564653652275.jpg'
