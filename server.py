@@ -8,6 +8,8 @@ import device
 import external_data
 
 
+key = 'ethanOnly:)!'
+
 with open(os.path.join('resources', 'my_landmarks.json'), encoding="utf-8") as json_file:
     assets = json.load(json_file)
 
@@ -23,6 +25,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = 'resources/Android/'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['SECRET_KEY'] = 'hahThisIsAVerySecureCavettaGhallEnkrixpin'
 
 
 devices = {}
@@ -35,10 +38,17 @@ devices = {}
 
 @app.route('/getFullNear')
 def getAllNear():
+    global key
     toRet = []
 
     args = request.args
     uid = args.get('uid')
+    t_key = args.get('key')
+
+    # if t_key != key:
+    #     return 'Forbidden!', 403
+
+
     for key, data in assets.items():
         distance = device.getDevice(devices, uid).getDist(
             data['lat'], data['lon'])
