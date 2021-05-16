@@ -28,9 +28,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 devices = {}
 
 
-@app.route('/')
-def root():
-    return jsonify('Welcome to Ethan\'s IAPT Project!')
+# @app.route('/')
+# def root():
+#     return jsonify('Welcome to Ethan\'s IAPT Project!')
 
 
 @app.route('/getFullNear')
