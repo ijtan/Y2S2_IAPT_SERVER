@@ -1,10 +1,9 @@
 {
     "history museum": {
-        "lat": 35.883511,
-        "lon": 14.394178,
+        "lat": 35.884894,
+        "lon": 14.403593,
         "rad": 15,
         "imageurl": [
-            "https://www.freeiconspng.com/uploads/art-history-museum-icon--4.png",
             "https://thumbs.dreamstime.com/b/courtyard-main-entrance-to-national-museum-natural-history-mdina-medina-malta-188154273.jpg",
             "https://universes.art/fileadmin/_processed_/f/2/csm_Nat-Mus-Natural-History-interior-1-A_3b2879ef50.jpg",
             "https://heritagemalta.org/wp-content/uploads/2019/04/kf3a4554.jpg",
@@ -15,8 +14,8 @@
         "long_desc": "The National Museum of Natural History is a natural history museum in the mediaeval walled city of Mdina, Malta. It is housed in Palazzo Vilhena, a French Baroque palace rebuilt in 1726 by Grand Master Antonio Manoel de Vilhena to designs of Charles François de Mondion."
     },
     "mdina dungeons": {
-        "lat": 35.883511,
-        "lon": 14.394178,
+        "lat": 35.8848448,
+        "lon": 14.4040887,
         "rad": 15,
         "imageurl": [
             "https://media-cdn.tripadvisor.com/media/photo-s/07/2b/58/99/mdina-dungeons.jpg",
