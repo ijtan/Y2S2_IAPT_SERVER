@@ -5,7 +5,7 @@ from flask.helpers import send_from_directory
 import numpy as numpy
 import device
 
-import external_data
+# import external_data
 
 
 key = 'ethanOnly:)!'
@@ -14,11 +14,11 @@ with open(os.path.join('resources', 'my_landmarks.json'), encoding="utf-8") as j
     assets = json.load(json_file)
 
 # newEntries = []
-for entry in external_data.getData().values():
-    newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'],
-                'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'], 'imageurl': entry['imageurl']}
+# for entry in external_data.getData().values():
+#     newentry = {'lat': entry['lat'], 'lon': entry['lon'], 'rad': 20, 'imageurl': '', 'display_name': entry['title'],
+#                 'short_desc': entry['short_desc'], 'long_desc': entry['long_desc'], 'imageurl': entry['imageurl']}
 
-    assets[entry['title'].lower()] = newentry
+#     assets[entry['title'].lower()] = newentry
 # assets.update()
 
 app = Flask(__name__)
