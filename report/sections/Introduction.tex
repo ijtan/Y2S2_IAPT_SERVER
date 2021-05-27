@@ -1,3 +1,20 @@
-Intro goes here
-next thing\\
-another!
+The aim of this project was to delve into the effects of the exploitation of Aigmented Reality Tecniques on tourism and heritage.\\
+An system is to be developed using Google's ARCore, which enables complex computer vision based functions to be easily embedded within an andorid app. 
+% where users are served an app which enables access to scanning for near landmarks. If the user is within a geofence of a landmark, 
+% the user is able to access an Augmented Reality Mode, where the feed of a camera is shown with an overlayed panel, showing information and Images about the site nearby.
+\subsection{Aims \& Objectives}
+The main objectove of this project is to explore the technologies available, their feasibility, and the potential effects in the context of tourism. 
+Mainly, the intended effect is to enable and incentivise tourists to identify heritage sites, whilst also easing the delivery of information in a fun and engaging way, perhaps
+giving a better context about what a site has to offer, and why it's even considered important to begin with.
+The project is to entail two main parts.
+\subsubsection{The Application}
+An android app is to be develoepd which the users are to access. The app is to constantly use the lcoation service to consult the API server by giving the device's currnet
+ location. A list of explorable landmarks is to be displayed, yet these are still non interactable, perhaps the app also gives guidance of how to arrive to
+ the landmarks.\\
+ When the user is within a (relatively small) proximity of a landmark (geofence defined server-side), the app enables a landmark to be selectable, which when selected the device enters an AR mode.\\
+ When in AR mode, the user can get an floating informational window containting details about the landmark selected.
+ \subsubsection{The API Server}
+ The server is to contain a list of landmarks including their names, locations, a description and maybe even a set of images. The Server should allow a device to consult it with
+ location-based information, and a list of landmarks (within some proximity) is returned to the device, where the device uses the information given and lists them as potential landmarks to explore.\\
+ The landmark information is to be stored on the server, so anything can be easily changed by changing the configurations of the server, and the mobile apps simply obtain newer information, 
+ without needing to rebuild or update the applications.
