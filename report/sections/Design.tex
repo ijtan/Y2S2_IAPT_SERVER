@@ -1,4 +1,13 @@
 \subsection{The Server}
+An api server was written in python, as due to the small scale of the application, this was ideal to meet the requirements whilst keeping the 
+implementation simple enough. The server provides several endpoints which may be pinged, but only two particular endpoints are used. 
+\subsubsection{Location Updates}
+The server keeps track of a list of active devices, (though a unique identifier provided on requests), and their last known location.
+The device regularly updates the sever wit lcoation infromation, and then requests nearby landmark data. 
+The server loops through all landmarks, and calculates the distance between the device longitude and latitude positioning, and the landmark.
+If the distance is below some threshold, it is added to a list of potnetially explorable landmarks, which is returned as a JSON response 
+to the device. Each landmark entry also contains a geofence region, which when is larger than the distance, the landmarks is considered near 
+the user, and the device can knmow that the AR mode can be enabled.
 \subsection{Location Service}
 \subsection{Close Landmark Menu}
 \subsection{Augmented Reality Panel}
