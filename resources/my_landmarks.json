@@ -27,15 +27,49 @@
         "short_desc": "The Mdina Dungeons Museum",
         "long_desc": "This is not one for the faint hearted. The Mdina Dungeons Museum is a vivid and harrowing account of medieval events in Malta. These very underground passageways, chambers and cells were home to some of the darkest and most torturous measures taken in a bygone era."
     },
-    "north pole": {
-        "lat": 90,
-        "lon": 0,
-        "rad": 5,
+    "mdina cathedral": {
+        "lat": 35.8863711,
+        "lon": 14.4036184,
+        "rad": 30,
         "imageurl": [
-            ""
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Malta-Mdina-Cathedral-Detail.jpg/220px-Malta-Mdina-Cathedral-Detail.jpg",
+            "https://www.metropolitanchapter.com/wp-content/uploads/2017/05/Main-Nave-681x1024.jpg",
+            "https://lh3.googleusercontent.com/proxy/rgFSf4FKZFG71FuDmQK10U9vO6kUy6OS4aH6qUCMt5n0Z0mjZDKtsC1_1Hu0yyW4pApWL8AzgcrJXyf822A7LA_gi5P6xXNdTNu-fayxR-qldK5o2HJ2D3mw_AkPxgEc07P5Zk-bMliey8nDaw",
+            "https://www.gate98.com/wp-content/uploads/2020/07/mdina-cathedral.jpg"
         ],
-        "display_name": "North Pole!",
-        "short_desc": "Chill!",
-        "long_desc": ""
+        "display_name": "St Paul's Cathedral",
+        "short_desc": "The Metropolitan Cathedral of Saint Paul",
+        "long_desc": "The cathedral was founded in the 12th century, and according to tradition it stands on the site of where Roman governor Publius met St. Paul following his shipwreck on Malta."
+    },
+    "mdina knights of malta": {
+        "lat": 35.886441,
+        "lon": 14.4001569,
+        "rad": 20,
+        "imageurl": [
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-2b.jpg",
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-1b-1.jpg",
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-14b.jpg",
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-11b.jpg",
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-12b.jpg",
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-13b.jpg",
+            "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-3b.jpg"
+        ],
+        "display_name": "The Knights of Malta Museum",
+        "short_desc": "One of three Mannequin museums of the Knights of Malta",
+        "long_desc": "The Knights of Malta in Mdina are honoured to receive your homage. Within the Mdina battlements, a cultural attraction about the order of the Knights Hospitallers of St. John of Jerusalem awaits you. "
+    },
+    "domvs romana": {
+        "lat": 35.8864716,
+        "lon": 14.4020406,
+        "rad": 20,
+        "imageurl": [
+            "https://archaeology-travel.com/wp-content/uploads/2014/03/mosaic-domus-romana-mdina.jpg",
+            "https://api.guidememalta.com/images/loadimage/2ca339b4-554e-47f6-a564-6ae8eafe9f1e",
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/f8/07/99/domvs-romana-rabat.jpg?w=1200&h=1200&s=1",
+            "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzRkaGhpZ2szb24yYTU4YTRjMGRlMTY0NWM4N2Q1X0RvbXVzX1JvbWFuYSxfUmFiYXRfMDYzMS5qcGciXSxbInAiLCJ0aHVtYiIsIjU4MHg1ODAjIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDgxIC1hdXRvLW9yaWVudCJdXQ/Domus_Romana%2C_Rabat_0631.jpg"
+        ],
+        "display_name": "Domvs Romana",
+        "short_desc": "A ruined Roman-era house located on the boundary between Mdina and Rabat",
+        "long_desc": "The Domus Romana is believed to have been  built in the 1st century BC as an aristocratic town house (domus) within the Roman city of Melite, and it remained in use until the 2nd century AD"
     }
 }

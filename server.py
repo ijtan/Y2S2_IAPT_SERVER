@@ -8,7 +8,7 @@ import device
 # import external_data
 
 
-key = 'ethanOnly:)!'
+key = 'veriSekurePass_Phrase4EnkripTiOn@!'
 
 with open(os.path.join('resources', 'my_landmarks.json'), encoding="utf-8") as json_file:
     assets = json.load(json_file)
