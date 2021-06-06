@@ -59,7 +59,7 @@ def getAllNear():
                 isNear = True
 
             resp = {
-                'near': isNear,
+                'near': False,
                 'locX': data['lat'],
                 'locY': data['lon'],
                 'title': data['display_name'],

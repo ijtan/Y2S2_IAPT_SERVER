@@ -1,4 +1,18 @@
 {
+    "home": {
+        "lat": 35.883510,
+        "lon": 14.394145,
+        "rad": 15,
+        "imageurl": [
+            "https://thumbs.dreamstime.com/b/courtyard-main-entrance-to-national-museum-natural-history-mdina-medina-malta-188154273.jpg",
+            "https://universes.art/fileadmin/_processed_/f/2/csm_Nat-Mus-Natural-History-interior-1-A_3b2879ef50.jpg",
+            "https://heritagemalta.org/wp-content/uploads/2019/04/kf3a4554.jpg",
+            "https://heritagemalta.org/wp-content/uploads/2019/04/nmnh-butterflies--e1564653652275.jpg"
+        ],
+        "display_name": "Test",
+        "short_desc": "Test",
+        "long_desc": "The National Test is a natural Test in the mediaeval walled city of Mdina, Malta. It is housed in Test, a French Baroque palace rebuilt in 1726 by Grand Master Antonio Manoel de Vilhena to designs of Charles François de Mondion."
+    },
     "history museum": {
         "lat": 35.884894,
         "lon": 14.403593,
@@ -55,7 +69,7 @@
             "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-3b.jpg"
         ],
         "display_name": "The Knights of Malta Museum",
-        "short_desc": "One of three Mannequin museums of the Knights of Malta",
+        "short_desc": "Bringing the Knights of Malta back to life!",
         "long_desc": "The Knights of Malta in Mdina are honoured to receive your homage. Within the Mdina battlements, a cultural attraction about the order of the Knights Hospitallers of St. John of Jerusalem awaits you. "
     },
     "domvs romana": {
@@ -69,7 +83,7 @@
             "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzRkaGhpZ2szb24yYTU4YTRjMGRlMTY0NWM4N2Q1X0RvbXVzX1JvbWFuYSxfUmFiYXRfMDYzMS5qcGciXSxbInAiLCJ0aHVtYiIsIjU4MHg1ODAjIl0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDgxIC1hdXRvLW9yaWVudCJdXQ/Domus_Romana%2C_Rabat_0631.jpg"
         ],
         "display_name": "Domvs Romana",
-        "short_desc": "A ruined Roman-era house located on the boundary between Mdina and Rabat",
+        "short_desc": "A ruined Roman-era house",
         "long_desc": "The Domus Romana is believed to have been  built in the 1st century BC as an aristocratic town house (domus) within the Roman city of Melite, and it remained in use until the 2nd century AD"
     }
 }
