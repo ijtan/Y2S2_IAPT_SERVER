@@ -1,4 +1,18 @@
 {
+    "home": {
+        "lat": 35.883484,
+        "lon": 14.394192,
+        "rad": 2.5,
+        "imageurl": [
+            "https://thumbs.dreamstime.com/b/courtyard-main-entrance-to-national-museum-natural-history-mdina-medina-malta-188154273.jpg",
+            "https://universes.art/fileadmin/_processed_/f/2/csm_Nat-Mus-Natural-History-interior-1-A_3b2879ef50.jpg",
+            "https://heritagemalta.org/wp-content/uploads/2019/04/kf3a4554.jpg",
+            "https://heritagemalta.org/wp-content/uploads/2019/04/nmnh-butterflies--e1564653652275.jpg"
+        ],
+        "display_name": "Test",
+        "short_desc": "Test",
+        "long_desc": "The National Test is a natural Test in the mediaeval walled city of Mdina, Malta. It is housed in Test, a French Baroque palace rebuilt in 1726 by Grand Master Antonio Manoel de Vilhena to designs of Charles François de Mondion."
+    },
     "history museum": {
         "lat": 35.884894,
         "lon": 14.403593,
