@@ -1,25 +1,51 @@
-\subsection{Brief of the Project}
-The aim of this project was to delve into the effects of the exploitation of Aigmented Reality Tecniques on tourism and heritage.\\
-An system is to be developed using Google's ARCore, which enables complex computer vision based functions to be easily embedded within an andorid app. 
-% where users are served an app which enables access to scanning for near landmarks. If the user is within a geofence of a landmark, 
-% the user is able to access an Augmented Reality Mode, where the feed of a camera is shown with an overlayed panel, showing information and Images about the site nearby.
-\subsection{Aims \& Objectives}
-The main objectove of this project is to explore the technologies available, their feasibility, and the potential effects in the context of tourism. 
-A main focus of this project is also to analyse AR's potential to enable and incentivise tourists to identify and visit heritage sites, 
-whilst also easing the delivery of information in a fun and engaging way, perhaps
-giving a better context about what a site has to offer, and why it's even considered important to begin with.\\
-If well documented, the ability to be provide a tangable experience to otherwise non-tangable sites. Perhaps sites which have been
-lost in wars or disasters. Giving a realistic experience of what a heritage site used to look when it was still in operation. 
+\subsection{The Server}
+An api server was written in python, as due to the small scale of the application, this was ideal to meet the requirements whilst keeping the 
+implementation simple enough. The server provides several endpoints which may be pinged, but only two particular endpoints are used. 
+\subsubsection{Location Updates}
+The server keeps track of a list of active devices, (though a unique identifier provided on requests), and their last known location.
+The device regularly updates the sever wit lcoation infromation, and then requests nearby landmark data. 
+The server loops through all landmarks, and calculates the distance between the device longitude and latitude positioning, and the landmark.
+If the distance is below some threshold, it is added to a list of potnetially explorable landmarks, which is returned as a JSON response 
+to the device. Each landmark entry also contains a geofence region, which when is larger than the distance, the landmarks is considered near 
+the user, and the device can knmow that the AR mode can be enabled.
+\subsection{Location Service}
+On the device, the location is updated every second, with an intended accuracy of 0.1 metres 
+(usually not met, but we try to be as accurate as possible).\\
+The integrated unity function is used, and a listener is used to check for updates, which update the server,
+and the landmarks list accordingly.
+\subsection{Close Landmark Menu}
+A scrolable list is used to show a list of the landmarks returned by the server. The title,
+a short description, the distance and the bearing is shown for each entry, so the user may have some basic 
+location info. Whenever the landmarks is very close, the entry become interactable, and the user can press it 
+to enter AR mode near the landmark. 
+\subsection{Augmented Reality Mode}
+In this mode, the camera is shown to the user, and a 3D transluscnet floating window is spawned in 3D space.
+The user may move around the panel, and observe the panel stays locked in 3D space. The panel shows
+some deeper description about the near landmark. A carousel allows the userto see some images of the place
+ (as provided through the API).  
 
-\subsection{Functionality Developed}
-\subsubsection{The Application}
-An android app was develoepd which the users are able to access. The app constantly uses the lcoation service to consult the API server, providing the device's current
- location. A list of explorable landmarks is displayed on the app, as a non-interactable list of potentially explorable landmarks, also giving a general bearing of where the 
- user should head to reach the site.\\
- When the user is within a (relatively small) proximity of a landmark (geofence defined server-side), the app enables a landmark to be selectable, which when selected the device enters an AR mode.\\
- When in AR mode, the user can get an floating informational window containting details about the landmark selected.
- \subsubsection{The API Server}
- The server is to contain a list of landmarks including their names, locations, a description and maybe even a set of images. The Server should allow a device to consult it with
- location-based information, and a list of landmarks (within some proximity) is returned to the device, where the device uses the information given and lists them as potential landmarks to explore.\\
- The landmark information is to be stored on the server, so anything can be easily changed by changing the configurations of the server, and the mobile apps simply obtain newer information, 
- without needing to rebuild or update the applications.
+ \subsection{Other AR Techniques}
+ A couple of other Augmented Reality techniques were explored during the development of this app. 
+ These tecniques were implemented and worked really well as sandalone, yet when combining the features 
+ the standalone applications do not have an yuses, and thus there is no way of using them. 
+ \subsubsection{Plane detection}
+ Although raw plane detection was not used in the final version, under the hood google uses it to keep the 
+ floating infromation panel in place. Through goggle's AR Core it is made possible to detect vertical 
+ and horizontal planes, to which other game opbjects can be anchored to!
+
+ In an example, plane detection was used to find a stable surface, and when the user clicks on a 
+ plane, a 3D Game model is spawned in place, and anchored to the plabe. The user is also to walk around 
+ in the room, whilst the objects stays anchored to plane! 
+
+ \subsubsection{Image Recognition \& Augmented Images}
+ Image Recognition was also a really interesting feature to use. In this projects case, a quick 
+ database manager was created in which a list of images could be inserted. And actions would be taken 
+ according to the image detected!
+ 
+In an example, an image of the earth was used as a key, and when this image is detected, a 3D spinning 
+globe would be overlayed on it, where the user is able to go around the globe!
+This may have been abnle to implemented in the app, yet as the landmark menu and the ARMode switching 
+works, It did not have much room to be used. (As in the near landmark menu, there is 
+not access to the camera), and the user may only use AR Mode when near a landmark. However, this 
+feature is also fully working, and may easily be implemented if a better use is identified. 
+
