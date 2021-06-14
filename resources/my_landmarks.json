@@ -15,7 +15,7 @@
     },
     "mdina dungeons": {
         "lat": 35.8848448,
-        "lon": 14.4040887,
+        "lon": 14.4035,
         "rad": 15,
         "imageurl": [
             "https://media-cdn.tripadvisor.com/media/photo-s/07/2b/58/99/mdina-dungeons.jpg",
@@ -28,8 +28,8 @@
         "long_desc": "This is not one for the faint hearted. The Mdina Dungeons Museum is a vivid and harrowing account of medieval events in Malta. These very underground passageways, chambers and cells were home to some of the darkest and most torturous measures taken in a bygone era."
     },
     "mdina cathedral": {
-        "lat": 35.8863711,
-        "lon": 14.4036184,
+        "lat": 35.886389,
+        "lon": 14.403611,
         "rad": 30,
         "imageurl": [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Malta-Mdina-Cathedral-Detail.jpg/220px-Malta-Mdina-Cathedral-Detail.jpg",
@@ -42,8 +42,8 @@
         "long_desc": "The cathedral was founded in the 12th century, and according to tradition it stands on the site of where Roman governor Publius met St. Paul following his shipwreck on Malta."
     },
     "mdina knights of malta": {
-        "lat": 35.886441,
-        "lon": 14.4001569,
+        "lat": 35.886941,
+        "lon": 14.40222,
         "rad": 20,
         "imageurl": [
             "https://theknightsofmalta.com/wp-content/uploads/2016/06/slide-2b.jpg",
