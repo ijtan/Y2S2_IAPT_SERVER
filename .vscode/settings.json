@@ -12,6 +12,18 @@
                 "emotions": [],
                 "goals": []
             }
+        },
+        {
+            "files": [
+                "**/report/sections/Background.tex"
+            ],
+            "config": {
+                "audience": "expert",
+                "dialect": "british",
+                "domain": "technical",
+                "emotions": [],
+                "goals": []
+            }
         }
     ]
 }
