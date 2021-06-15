@@ -1,25 +1,33 @@
-\subsection{Brief of the Project}
-The aim of this project was to delve into the effects of the exploitation of Aigmented Reality Tecniques on tourism and heritage.\\
-An system is to be developed using Google's ARCore, which enables complex computer vision based functions to be easily embedded within an andorid app. 
+\subsection{Brief of Project}
+This project aims to delve into the effects of the exploitation of Augmented Reality Techniques on tourism and heritage.\\
+A system is to be developed using Google's ARCore, enabling complex computer vision-based functions to be easily embedded within an andorid app. 
 % where users are served an app which enables access to scanning for near landmarks. If the user is within a geofence of a landmark, 
 % the user is able to access an Augmented Reality Mode, where the feed of a camera is shown with an overlayed panel, showing information and Images about the site nearby.
 \subsection{Aims \& Objectives}
-The main objectove of this project is to explore the technologies available, their feasibility, and the potential effects in the context of tourism. 
-A main focus of this project is also to analyse AR's potential to enable and incentivise tourists to identify and visit heritage sites, 
-whilst also easing the delivery of information in a fun and engaging way, perhaps
-giving a better context about what a site has to offer, and why it's even considered important to begin with.\\
-If well documented, the ability to be provide a tangable experience to otherwise non-tangable sites. Perhaps sites which have been
-lost in wars or disasters. Giving a realistic experience of what a heritage site used to look when it was still in operation. 
+% The main objectove of this project is to explore the technologies available, their feasibility, and the potential effects in the context of tourism. 
+% A main focus of this project is also to analyse AR's potential to enable and incentivise tourists to identify and visit heritage sites, 
+% whilst also easing the delivery of information in a fun and engaging way, perhaps
+% giving a better context about what a site has to offer, and why it's even considered important to begin with.\\
+% If well documented, the ability to be provide a tangable experience to otherwise non-tangable sites. Perhaps sites which have been
+% lost in wars or disasters. Giving a realistic experience of what a heritage site used to look when it was still in operation. 
+There are three main objectives to this project, which are to be explored and implemented to analyse the effects of their combination. 
+Firstly,  Augmented Reality is to be used and implemented in the setting of an outdoor environment, using several technologies provided by ARCore,
+we may explore different ways that this can be exploited for the best experience. This may even be combined with other sensory data such 
+as the location for a better touch with reality. Secondly, an android application is to be developed, which will allow ease of use by most people, avoiding hurdles of 
+installations and such. This application is to provide some method of direction to landmarks, and also incorporate the AR experience when 
+appropriate. The application is to get information from a server, which will allow for a centralised and controlled method of managing 
+landmarks, descriptions and their locations.   
 
 \subsection{Functionality Developed}
 \subsubsection{The Application}
-An android app was developed which the users are able to access. The app constantly uses the location service to consult the API server, providing the device's current
- location and retrieving a list of explorable landmarks. These landmarks are displayed on the app, as a list of potentially explorable landmarks, also giving a general bearing of where the 
- user should head to reach the site.\\
- When the user is within a (relatively small) proximity of a landmark (geofence defined server-side), the app enables a landmark to be selectable, which when selected the device enters an AR mode.\\
- When in AR mode, the user can get an floating 3D informational window containting details about the landmark selected.
+An android app was developed that the users can easily install and access. The app constantly uses the location service to consult the API server, providing the device's current
+ location and retrieving a list of explorable landmarks. These landmarks are displayed on the application, as a list of potentially explorable landmarks,
+  also giving a general bearing of where the 4user should head to reach the site.\\
+ When the user is within a (relatively small) proximity of a landmark (geofence defined server-side), the app enables a landmark to be selectable, which when selected, the device enters an AR mode.\\
+ When in AR mode, the user can get a floating 3D informational window that contains details about the landmark selected.
  \subsubsection{The API Server}
- The server is to contain a list of landmarks including their names, locations, a description and maybe even a set of images. The Server should allow a device to consult it with
- location-based information, and a list of landmarks (within some proximity) is returned to the device, where the device uses the information given and lists them as potential landmarks to explore.\\
+ The server is to contain a list of landmarks, including their names, locations, a description and maybe even a set of images. The server should allow a device to consult it with
+ location-based information and a list of landmarks (within some proximity) is returned to the device, where the device uses the information given and lists them as potential landmarks to explore.\\
  The landmark information is to be stored on the server, so anything can be easily changed by changing the configurations of the server, and the mobile apps simply obtain newer information, 
- without needing to rebuild or update the applications.
+ without needing to rebuild or update the applications. As this technology may be adopted to other uses, such as games, it would be really useful to be able to have an idea of where 
+ players are.

@@ -1,3 +1,17 @@
 {
-    "discord.enabled": false
+    "discord.enabled": false,
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/report/sections/Introduction.tex"
+            ],
+            "config": {
+                "audience": "expert",
+                "dialect": "british",
+                "domain": "academic",
+                "emotions": [],
+                "goals": []
+            }
+        }
+    ]
 }
