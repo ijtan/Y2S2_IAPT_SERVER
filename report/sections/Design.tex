@@ -9,17 +9,19 @@ The server loops through all landmarks, and calculates the distance between the 
 If the distance is below some threshold, it is added to a list of potnetially explorable landmarks, which is returned as a JSON response 
 to the device. Each landmark entry also contains a geofence region, which when is larger than the distance, the landmarks is considered near 
 the user, and the device can knmow that the AR mode can be enabled.
-\subsection{Location Service}
+\subsection{The Application}
+\subsubsection{Location Service}
 On the device, the location is updated every second, with an intended accuracy of 0.1 metres 
 (usually not met, but we try to be as accurate as possible).\\
 The integrated unity function is used, and a listener is used to check for updates, which update the server,
 and the landmarks list accordingly.
-\subsection{Close Landmark Menu}
-A scrolable list is used to show a list of the landmarks returned by the server. The title,
-a short description, the distance and the bearing is shown for each entry, so the user may have some basic 
-location info. Whenever the landmarks is very close, the entry become interactable, and the user can press it 
+\subsubsection{Close Landmark Menu}
+A scrollable list was used to show a list of the landmarks returned by the server. The title,
+a short description, the raw distance from the location and the bearing to the location is shown for each entry,
+ so the user may have some basic information on how to reach a target.
+  Whenever the landmarks is very close, the entry become interactable, and the user can press it 
 to enter AR mode near the landmark. 
-\subsection{Augmented Reality Mode}
+\subsubsection{Augmented Reality Mode}
 In this mode, the camera is shown to the user, and a 3D transluscnet floating window is spawned in 3D space.
 The user may move around the panel, and observe the panel stays locked in 3D space. The panel shows
 some deeper description about the near landmark. A carousel allows the userto see some images of the place
