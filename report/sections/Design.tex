@@ -27,6 +27,17 @@ The user may move around the panel, and observe the panel stays locked in 3D spa
 some deeper description about the near landmark. A carousel allows the userto see some images of the place
  (as provided through the API).  
 
+
+\subsection{Main Algortihms}
+% The main algorithms used deal with the positioning and distance calculations of the device.
+\subsubsection{AR Camera and Pose Driver}
+When combined with unity, ARCore gives the developer access to the AR camera and the pose driver, which are responsible for synchronizing movements 
+carried out in real life, with the movement inside the game engine. A system is used where 1 unit in the unity engine corresponds to one meter of scale when 
+viewed in AR mode. Thus If we need to create a 30cm box, we can just set the size in the engine to 0.3, without needing to do any manual conversion, etc.
+\subsubsection{Geometric Distance \& Geofencing}
+\subsubsection{Geometric Bearing}
+
+
  \subsection{Other AR Techniques}
  A couple of other Augmented Reality techniques were explored during the development of this app. 
  These tecniques were implemented and worked really well as sandalone, yet when combining the features 
