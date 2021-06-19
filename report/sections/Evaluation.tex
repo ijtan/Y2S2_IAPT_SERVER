@@ -1,20 +1,23 @@
 
 \subsection{Test Analysis}
+
 \subsubsection{Landmark Menu}
 The solution as an application was very stable in general, since unity was used, any changes can be done directly through the unity editor, and the benefits of being a 
-unity-based applicaition are retained. The aim to provide some sense of direction to the user was also satisifed, as when the GPS connection was established, distance 
-and bearing data was accurate. When the GPS connection was unstable, the bearing direction and distance was a little off, yet immediately normalized when conenction was restored. 
+unity-based application are retained. The aim to provide some sense of direction to the user was also satisfied, as when the GPS connection was established, distance 
+and bearing data was accurate. When the GPS connection was unstable, the bearing direction and distance were a little off, yet immediately normalized when the connection was restored. 
 \subsubsection{AR Mode}
-In general, when dsicernable plane features are present, the panel stays fixed in-place as intended.
-However, plane detection by design, struggles when there are no close discernable attributes (the floor has a regular pattern for example), which the tests 
+In general, when discernable plane features are present, the panel stays fixed in place as intended.
+However, plane detection by design struggles when there are no close discernable attributes (the floor has a regular pattern for example), which the tests 
 have also shown to affect the stability of the position of the panel.
 \subsubsection{Server Communication}
 Through using the application, the server was also being tested. The solution developed was very responsive, and provided very quick and usable results. 
-Distance calculation and geofeincing also worked punctually, and the device's locations were updated in realtime.\\
-As expandability was also in mind, it is really easy to add,remove and change landmarks, as a simple json file is provided, where every bit of details can be changed.
-
-The few test perofrmed show that the technologies used are very applicable to the aims and objectives. The strengths of the application match up with the strengths of the domain, 
-providing a deep sense of immersion and informative. The weknesses of the application are also in sync with the limitations of the domain. Particulary, the systems suffers where a stable 
+Distance calculation and geofencing also worked punctually, and the device's locations were updated in real-time.\\
+As expandability was also in mind, it is really easy to add, remove and change landmarks, as a simple JSON file is provided, where every bit of details can be changed.\\
+Due to the centralised nature of the application, an internet connection needs to be maintained for most features to work, 
+as all landmark information is obtained from the server.
+\subsubsection{General Comments}
+The few tests performed show that the technologies used are very applicable to the aims and objectives. The strengths of the application match up with the strengths of AR as a concept, 
+providing a deep sense of immersion whilst also being informative. On the other hand, the weaknesses of the application are also in sync with the limitations of the concepts by design. Particularly, the application suffers where a stable 
 plane is not detected and a plane with lower certainty has to be used, which may cause the information panel to shift positions unexpectedly. 
 
 \subsection{Potential Testing}
@@ -22,8 +25,8 @@ Three key points mentioned in \cite{Samini2017} have great potential in giving a
 \subsubsection{Independant Variables}
 The variation of independent variables can be used as a performance metric and help analyse the experience of the user, these variables include things that are not 
 varied by the user during the test. Examples of such variables include the device size and the field of view of a device's 
-camera.\\
-\subsubsection{Dependant Variables}
+camera.
+\subsubsection{Dependent Variables}
 These variables give a robust metric of how the users react to the 
 application presented, such as the number of attempts taken to carry out an action.
 Yet this is very application-specific and does not allow for comparison between other systems, as 
@@ -38,10 +41,10 @@ from the user-centric nature, the ultimate goal is the users' experience.
 % The system was developed with expandability in mind, and thus, it is really easy to adapt the system into different uses cases.
 \subsection{Possible Improvements}
 \subsubsection{Augmented Images}
-Ideally, augmented imaging is implemented as another landmark type, as it would allow for a wider range of applications and immersion.
-This application would also be applcable in places such as inside museums where for example it would enchance a painting, or have some animation overlayed on it.
-
-Another possible improvment is to give better direction towards landmarks, the current application simply gives baring direction and straight line distance between points,
+Ideally, the augmented imaging feature mentioned in appendix 1 is implemented as another landmark type, as it would allow for a wider range of applications and immersion.
+This application would also be applicable in places such as inside museums where for example it would enhance a painting, or have some animation overlayed on it.
+\noindent
+Another possible improvement is to give better direction towards landmarks, the current application simply gives baring direction and straight line distance between points,
  without any consideration for the streets/obstacles.
 \subsection{Future Work}
 During development, it was made sure to keep the system as open as possible. Through the 

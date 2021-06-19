@@ -16,7 +16,7 @@ the user, and the device can know that the AR mode can be enabled.
 Unity provides a wide range of features that can be used to implemented UI in the application. 
 Modern solutions make use of a canvas gameObject which promises several features such as user interaction, screen scaling/responsiveness, and 
 list managing features such as scrollable lists.
-
+\noindent
 A scrollable list was used to show a list of the landmarks returned by the server. The title,
 a short description, the raw distance from the location and the bearing to the location is shown for each entry,
  so the user may have some basic information on how to reach a target.
@@ -32,11 +32,11 @@ and the landmarks list accordingly.
 
 % \subsubsection{Geometric }
 \subsubsection{Geometric Bearing, Distance \& Geofencing}
-In aims of ensuring timely server responses, a library called 'haversine' was used to calculate distances between two coordinates. This is not very straightforward, 
+In the aims of ensuring timely server responses, a library called 'haversine' was used to calculate distances between two coordinates. This is not very straightforward, 
 as in calculations one needs to consider the curvature of the earth, and take distance measurements as lengths in circumference. Each landmarks entry has a "rad" 
-attribute, and when the distance between device and landmarks are smalelr, the device can be considered as being inside the geofence!\\
-The Geometric bearing was calculated on the device, as the server did not have much other uses for the bearing of the device. Here we once again use the coordinates 
-of the device, the curring magnetic heading of the device and the coordinates of the landmark to find a relative bearing (direction from north).   
+attribute, and when the distance between the device and landmarks are smaller, the device can be considered as being inside the geofence!\\
+The Geometric bearing was calculated on the device, as the server did not have many other uses for the bearing of the device. Here we once again use the coordinates 
+of the device, the curring magnetic heading of the device and the coordinates of the landmark to find a relative bearing (direction from the north).   
 
 % \subusbsection{Geometric Bearing}
 
@@ -47,7 +47,7 @@ of the device, the curring magnetic heading of the device and the coordinates of
 \subsection{AR Mode Technologies}
 In this mode, the camera is shown to the user, and a 3D translucent floating window is spawned in 3D space.
 The user may move around the panel, and observe the panel stays locked in 3D space. The panel shows
-some deeper description about the near landmark. A carousel allows the user to see some images of the place
+some deeper description of the near landmark. A carousel allows the user to see some images of the place
  (as provided through the API). 
 
 % \subsection{Scaling}
@@ -55,8 +55,9 @@ some deeper description about the near landmark. A carousel allows the user to s
 \subsubsection{Scaling \& Interaction}
 When combined with unity, ARCore gives the developer access to the AR camera and the pose driver, which are responsible for synchronizing movements 
 carried out in real life, with the movement inside the game engine. A system is used where 1 unit in the unity engine corresponds to one meter of scale when 
-viewed in AR mode. Thus If we need to create a 30cm box, we can just set the size in the engine to 0.3, without needing to do any manual conversion, etc.\\
+viewed in AR mode. Thus If we need to create a 30cm box, we can just set the size in the engine to 0.3, without needing to do any manual conversion, etc.
 
+\subsubsection{Fixed Positioning}
  A 'World Canvas' gameObject was used so that we can use UI features in 3D space, allowing for a simpler implementation when handling image placement, text sizing, 
  and any other form of user interaction with the panel. By appending the information panel to this type of canvas, we also inform ARCore that we want to synchronise 
  the locations between the real world and the virtual unity world space.
@@ -73,7 +74,7 @@ viewed in AR mode. Thus If we need to create a 30cm box, we can just set the siz
 
 %  \subsection{Other AR Techniques}
 %  A couple of other Augmented Reality techniques were explored during the development of this app. 
-%  These techniques were implemented and worked really well as stand-alone, yet when combining the features, 
+%  These techniques were implemented and worked well as stand-alone, yet when combining the features, 
 %  these standalone techniques were omitted, as they would require infrastructural changes to the way that landmarks are stored and communicated, which I believe is out of the scope for this project. They are still left available in the unity project in case these would be implemented in the future yet as is, there is no way of accessing them through the App. 
 %  \subsubsection{Plane detection}
 %  Although raw plane detection was not used in the final version, under the hood google uses it to keep the 
@@ -85,7 +86,7 @@ viewed in AR mode. Thus If we need to create a 30cm box, we can just set the siz
 %  in the room, whilst the objects stay anchored to the plane! 
 
 %  \subsection{Image Recognition \& Augmented Images}
-%  Image Recognition was also a really interesting feature to use, yet unfortunately it is not used in the application. This may have been able to be implemented, yet with the current implementations 
+%  Image Recognition was also a really interesting feature to use, yet unfortunately, it is not used in the application. This may have been able to be implemented, yet with the current implementations 
 %  of the landmark menu and the ARMode switching, It did not make much sense to be used. (As in the near landmark menu, there is no access to the camera), and the user may only use AR Mode when near a landmark.\\
 %  However, this feature is also fully working, and may easily be implemented if a better use in the context of outdoor AR is identified. 
 %  In the case of this project, a quick database manager was created in which a list of images could
@@ -96,7 +97,7 @@ Due to the domain of this project and the technologies adopted, it was not as st
 test the raw performance of the system. As there is no performance metric or such that can be 
 analysed and compares to other instances \cite{Samini2017}. 
 \subsubsection{On-Site Testing}
-Several test were performed on-site, where the locations were actually based, all in aims of exploring how the system handles different cases. 
+Several tests were performed on-site, where the locations were actually based, all with the aims of exploring how the system handles different cases. 
 This included normal usability and even edge cases such as using the panel where we know plane detection will struggle.
 \\
 The panel was tested on floors that had discernable planes features, and on others where there was a repeated pattern (a known struggle-point of plane detection).\\
@@ -116,12 +117,12 @@ The panel was tested on floors that had discernable planes features, and on othe
         \caption{Stable Panel showing image}
         \label{fig:panel_img}
     \endminipage
-    \end{figure}         
-Further testing is shown in the video, as it's the easiest way to show off the experience.\\
-The application was also used with a subpar GPS connection (as some parts of Mdina do not have good coverage).\\
-In order to test the  bearing accuracy, the north pole was temporarily added as a landmark, and a general comparison between the bearing shown and a compass was used.\\
-Due to the centralised nature of the application, an internet connection needs to be maintained for most features to work, 
-as all landmark information is obtained from the server.
+    \end{figure}
+
+\noindent
+In order to test the  bearing accuracy, the north pole was temporarily added as a landmark, and a general comparison between the bearing shown and a compass was used.
+The application was also used with a subpar GPS connection (as some parts of Mdina do not have good coverage).
+
 \begin{figure}[!htb]
     \minipage{0.45\textwidth}
         \includegraphics[width=\linewidth]{landmarks_menu}
@@ -133,4 +134,6 @@ as all landmark information is obtained from the server.
         \caption{Landmark Entry Activated}
         \label{fig:active_land}
     \endminipage
-    \end{figure}    
+    \end{figure}
+\noindent
+Further testing is shown in the video, as it's the best way to convey the experience.
