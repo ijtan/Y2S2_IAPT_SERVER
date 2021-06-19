@@ -52,6 +52,18 @@
                 "emotions": [],
                 "goals": []
             }
+        },
+        {
+            "files": [
+                "**/report/sections/Design.tex"
+            ],
+            "config": {
+                "audience": "expert",
+                "dialect": "british",
+                "domain": "academic",
+                "emotions": [],
+                "goals": []
+            }
         }
     ]
 }
