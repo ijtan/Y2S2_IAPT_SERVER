@@ -9,33 +9,60 @@ The server loops through all landmarks, and calculates the distance between the 
 If the distance is below some threshold, it is added to a list of potnetially explorable landmarks, which is returned as a JSON response 
 to the device. Each landmark entry also contains a geofence region, which when is larger than the distance, the landmarks is considered near 
 the user, and the device can knmow that the AR mode can be enabled.
-\subsection{The Application}
-\subsubsection{Location Service}
-On the device, the location is updated every second, with an intended accuracy of 0.1 metres 
-(usually not met, but we try to be as accurate as possible).\\
-The integrated unity function is used, and a listener is used to check for updates, which update the server,
-and the landmarks list accordingly.
-\subsubsection{Close Landmark Menu}
+
+
+\subsection{Landmark Menu}
+\subsubsection{General User Interface}
+Unity provides a wide range of features that can be used to implemented UI in the application. 
+Modern solutions aremake use of a canvas gameObject which promises several features such as user interaction, screen scaling/responsiveness, and 
+list managing features such as scrollable lists.
+
 A scrollable list was used to show a list of the landmarks returned by the server. The title,
 a short description, the raw distance from the location and the bearing to the location is shown for each entry,
  so the user may have some basic information on how to reach a target.
   Whenever the landmarks is very close, the entry become interactable, and the user can press it 
 to enter AR mode near the landmark. 
-\subsubsection{Augmented Reality Mode}
-In this mode, the camera is shown to the user, and a 3D transluscnet floating window is spawned in 3D space.
-The user may move around the panel, and observe the panel stays locked in 3D space. The panel shows
-some deeper description about the near landmark. A carousel allows the userto see some images of the place
- (as provided through the API).  
 
+\subsubsection{Location Service}
+On the device, the location is updated every second, with an intended accuracy of 0.1 metres 
+(usually not met, but we try to be as accurate as possible).\\
+The integrated unity function is used, and a listener is used to check for updates, which update the server,
+and the landmarks list accordingly.
 
-\subsection{Main Algortihms}
-% The main algorithms used deal with the positioning and distance calculations of the device.
-\subsubsection{AR Camera and Pose Driver}
-When combined with unity, ARCore gives the developer access to the AR camera and the pose driver, which are responsible for synchronizing movements 
-carried out in real life, with the movement inside the game engine. A system is used where 1 unit in the unity engine corresponds to one meter of scale when 
-viewed in AR mode. Thus If we need to create a 30cm box, we can just set the size in the engine to 0.3, without needing to do any manual conversion, etc.
 \subsubsection{Geometric Distance \& Geofencing}
 \subsubsection{Geometric Bearing}
+
+% \subusbsection{Geometric Bearing}
+
+
+% \subsection{Main Techniques}
+% The main algorithms used deal with the positioning and distance calculations of the device.
+
+\subsection{AR Mode Technologies}
+In this mode, the camera is shown to the user, and a 3D transluscnet floating window is spawned in 3D space.
+The user may move around the panel, and observe the panel stays locked in 3D space. The panel shows
+some deeper description about the near landmark. A carousel allows the user to see some images of the place
+ (as provided through the API). 
+
+% \subsection{Scaling}
+
+\subsubsection{Scaling \& Interaction}
+When combined with unity, ARCore gives the developer access to the AR camera and the pose driver, which are responsible for synchronizing movements 
+carried out in real life, with the movement inside the game engine. A system is used where 1 unit in the unity engine corresponds to one meter of scale when 
+viewed in AR mode. Thus If we need to create a 30cm box, we can just set the size in the engine to 0.3, without needing to do any manual conversion, etc.\\
+
+ A 'World Canvas' gameObject was used so that we can use UI features in 3D space, allowing for a simpler implementation when handling image placement, text sizing, 
+ and any other form of user inetraction with the panel. By appending the information panel to this type of canvas, we also inform ARCore that we want to synchronise 
+ the locations between the real world and the virtual unity wrodlspace.
+
+ \subsubsection{Information Panel Instantiation}
+ Using the forementioned techniques, we first create a generic preab for the Information Panel. This includes the colouring, text placement, title placement, and 
+ other things such as button placement and functionality etc. We also provide some relative sizing, which will be scaled accordingly when the prefab is used.\\
+ Upon Clicking on the desired entry from the landmarks menu, the information of the landmark is transfered to the AR Mode scene, this data includes things such as 
+ the title, long description and image urls. We then simply populate the prefab with the information provided, and instantiate the panel in the world canvas, 
+ relative to the AR camera position. The Pose driver then ensures that the panel stays fixed in the in-game position, whilst variying the AR camera position to 
+ match real world movements of the device. 
+
 
 
  \subsection{Other AR Techniques}
