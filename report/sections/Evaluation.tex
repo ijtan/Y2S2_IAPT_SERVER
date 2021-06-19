@@ -7,35 +7,36 @@ unity-based application are retained. The aim to provide some sense of direction
 and bearing data was accurate. When the GPS connection was unstable, the bearing direction and distance were a little off, yet immediately normalized when the connection was restored. 
 \subsubsection{AR Mode}
 In general, when discernable plane features are present, the panel stays fixed in place as intended.
-However, plane detection by design struggles when there are no close discernable attributes (the floor has a regular pattern for example), which the tests 
-have also shown to affect the stability of the position of the panel.
+Unfortunately, plane detection by design struggles when there are no close discernable attributes (the floor has a regular pattern for example) and there is not much which can be done to 
+counteract this issue. The tests performed have also shown that in rare cases, this affects the stability of the position of the panel. However, this does not occur very often, and the 
+general experience rarely suffers.
 \subsubsection{Server Communication}
 Through using the application, the server was also being tested. The solution developed was very responsive, and provided very quick and usable results. 
 Distance calculation and geofencing also worked punctually, and the device's locations were updated in real-time.\\
-As expandability was also in mind, it is really easy to add, remove and change landmarks, as a simple JSON file is provided, where every bit of details can be changed.\\
+As expandability was also in mind, it is really easy to add, remove and change landmarks, as a simple JSON file is provided, where every bit of detail can be changed.\\
 Due to the centralised nature of the application, an internet connection needs to be maintained for most features to work, 
 as all landmark information is obtained from the server.
-\subsubsection{General Comments}
+\subsubsection{Critical Analysis}
 The few tests performed show that the technologies used are very applicable to the aims and objectives. The strengths of the application match up with the strengths of AR as a concept, 
 providing a deep sense of immersion whilst also being informative. On the other hand, the weaknesses of the application are also in sync with the limitations of the concepts by design. Particularly, the application suffers where a stable 
 plane is not detected and a plane with lower certainty has to be used, which may cause the information panel to shift positions unexpectedly. 
 
 \subsection{Potential Testing}
 Three key points mentioned in \cite{Samini2017} have great potential in giving a more formal understanding of the performance of such systems. 
-\subsubsection{Independant Variables}
-The variation of independent variables can be used as a performance metric and help analyse the experience of the user, these variables include things that are not 
+\subsubsection{Variation of Independant Variables}
+The feedback provided after variation of independent variables can be used as a performance metric and help analyse the experience of the user, these variables include things that are not 
 varied by the user during the test. Examples of such variables include the device size and the field of view of a device's 
-camera.
-\subsubsection{Dependent Variables}
-These variables give a robust metric of how the users react to the 
+camera, which can help conclude the applicability of the technologies adopted with the devices used.
+\subsubsection{Variation of Dependent Variables}
+The variation of these variables gives a robust metric of how the users react to the 
 application presented, such as the number of attempts taken to carry out an action.
-Yet this is very application-specific and does not allow for comparison between other systems, as 
+Yet this is very application-specific and does not allow much room for comparison between other systems, as 
 tasks in an application usually are specific to it.
 
 \subsubsection{Questionnaires}
-Questionnaires were mentioned as another performance metric, which allows a subjective metric. 
+Questionnaires were mentioned as another performance metric, in contrast to the other tests, this metric is purely subjective. 
 In applications such as the tourism domain, this is of utmost importance, as it follows that 
-from the user-centric nature, the ultimate goal is the users' experience.  
+from the user-centric nature, the ultimate goal is to maximise the users' resultant experience, and thus feedback directly from the users may be key.  
 
 % \subsection{Future Works}
 % The system was developed with expandability in mind, and thus, it is really easy to adapt the system into different uses cases.

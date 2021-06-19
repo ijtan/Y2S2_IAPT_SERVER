@@ -34,9 +34,9 @@ and the landmarks list accordingly.
 \subsubsection{Geometric Bearing, Distance \& Geofencing}
 In the aims of ensuring timely server responses, a library called 'haversine' was used to calculate distances between two coordinates. This is not very straightforward, 
 as in calculations one needs to consider the curvature of the earth, and take distance measurements as lengths in circumference. Each landmarks entry has a "rad" 
-attribute, and when the distance between the device and landmarks are smaller, the device can be considered as being inside the geofence!\\
+attribute, and when the distance between the device and landmarks is smaller, the device can be considered as being inside the geofence!\\
 The Geometric bearing was calculated on the device, as the server did not have many other uses for the bearing of the device. Here we once again use the coordinates 
-of the device, the curring magnetic heading of the device and the coordinates of the landmark to find a relative bearing (direction from the north).   
+of the device, the current magnetic heading of the device and the coordinates of the landmark to find a relative bearing (clockwise angle from the north).   
 
 % \subusbsection{Geometric Bearing}
 
@@ -52,23 +52,25 @@ some deeper description of the near landmark. A carousel allows the user to see 
 
 % \subsection{Scaling}
 
-\subsubsection{Scaling \& Interaction}
+
+\subsubsection{Fixed Positioning \& Interactability}
 When combined with unity, ARCore gives the developer access to the AR camera and the pose driver, which are responsible for synchronizing movements 
-carried out in real life, with the movement inside the game engine. A system is used where 1 unit in the unity engine corresponds to one meter of scale when 
+carried out in real life, with the movement inside the game engine. A 'World Canvas' gameObject was used so that we can use UI features in 3D space, allowing for a simpler implementation when 
+handling image placement, text sizing, and any other form of user interaction with the panel. By appending the information panel to this type of canvas, we also inform ARCore that 
+we want to synchronise the gameObject positioning between the real world and the virtual unity world space.\\
+\noindent
+Through the aforementioned pose driver and AR camera, a system is used where 1 unit in the unity engine corresponds to 1 meter when
 viewed in AR mode. Thus If we need to create a 30cm box, we can just set the size in the engine to 0.3, without needing to do any manual conversion, etc.
+% \subsubsection{Scaling}
 
-\subsubsection{Fixed Positioning}
- A 'World Canvas' gameObject was used so that we can use UI features in 3D space, allowing for a simpler implementation when handling image placement, text sizing, 
- and any other form of user interaction with the panel. By appending the information panel to this type of canvas, we also inform ARCore that we want to synchronise 
- the locations between the real world and the virtual unity world space.
-
- \subsubsection{Information Panel Instantiation}
- Using the aforementioned techniques, we first create a generic prefab for the Information Panel. This includes the colouring, text placement, title placement, and 
- other things such as button placement and functionality etc. We also provide some relative sizing, which will be scaled accordingly when the prefab is used.\\
- Upon Clicking on the desired entry from the landmarks menu, the information of the landmark is transferred to the AR Mode scene, this data includes things such as 
- the title, long description and image URLs. We then simply populate the prefab with the information provided, and instantiate the panel in the world canvas, 
- relative to the AR camera position. The Pose driver then ensures that the panel stays fixed in the in-game position, whilst varying the AR camera position to 
- match real-world movements of the device. 
+\subsubsection{Information Panel Instantiation}
+Using the aforementioned techniques, we first create a generic prefab for the Information Panel. This includes the colouring, text placement, title placement, and 
+other things such as button placement and functionality etc. We also provide some relative sizing, which will be scaled accordingly when the prefab is used.\\ 
+The Instantiation of the information panel happens upon clicking on a desired entry from the landmarks menu, where the information of the landmark is transferred to the AR Mode scene.
+This information includes data such as the landmark title, a long description and an array image URLs. We then simply populate the prefab with the information provided, and instantiate 
+the panel as a child of the world canvas, relative to the AR camera position. 
+The Pose driver then ensures that the panel stays fixed in the in-game position, whilst varying the AR camera position to 
+match real-world movements of the device. 
 
 
 
@@ -120,8 +122,8 @@ The panel was tested on floors that had discernable planes features, and on othe
     \end{figure}
 
 \noindent
-In order to test the  bearing accuracy, the north pole was temporarily added as a landmark, and a general comparison between the bearing shown and a compass was used.
-The application was also used with a subpar GPS connection (as some parts of Mdina do not have good coverage).
+In order to test the bearing accuracy, the north pole was temporarily added as a landmark, and a general comparison between the bearing shown and a compass was used.
+The application was also used with a subpar GPS connection to see the impact on the overall experience (as some parts of Mdina do not have good coverage).
 
 \begin{figure}[!htb]
     \minipage{0.45\textwidth}
@@ -131,7 +133,7 @@ The application was also used with a subpar GPS connection (as some parts of Mdi
     \endminipage\hfill
     \minipage{0.45\textwidth}
         \includegraphics[width=\linewidth]{landmarks_menu_activated}
-        \caption{Landmark Entry Activated}
+        \caption{Landmark Entry Activated (In geofence)}
         \label{fig:active_land}
     \endminipage
     \end{figure}
