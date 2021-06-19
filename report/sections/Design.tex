@@ -29,8 +29,14 @@ On the device, the location is updated every second, with an intended accuracy o
 The integrated unity function is used, and a listener is used to check for updates, which update the server,
 and the landmarks list accordingly.
 
-\subsubsection{Geometric Distance \& Geofencing}
-\subsubsection{Geometric Bearing}
+
+% \subsubsection{Geometric }
+\subsubsection{Geometric Bearing, Distance \& Geofencing}
+In aims of ensuring timely server responses, a library called 'haversine' was used to calculate distances between two coordinates. This is not very straightforward, 
+as in calculations one needs to consider the curvature of the earth, and take distance measurements as lengths in circumference. Each landmarks entry has a "rad" 
+attribute, and when the distance between device and landmarks are smalelr, the device can be considered as being inside the geofence!\\
+The Geometric bearing was calculated on the device, as the server did not have much other uses for the bearing of the device. Here we once again use the coordinates 
+of the device, the curring magnetic heading of the device and the coordinates of the landmark to find a relative bearing (direction from north).   
 
 % \subusbsection{Geometric Bearing}
 
@@ -65,28 +71,23 @@ viewed in AR mode. Thus If we need to create a 30cm box, we can just set the siz
 
 
 
- \subsection{Other AR Techniques}
- A couple of other Augmented Reality techniques were explored during the development of this app. 
- These techniques were implemented and worked really well as stand-alone, yet when combining the features, 
- these standalone techniques were omitted, as they would require infrastructural changes to the way that landmarks are stored and communicated, which I believe is out of the scope for this project. They are still left available in the unity project in case these would be implemented in the future yet as is, there is no way of accessing them through the App. 
- \subsubsection{Plane detection}
- Although raw plane detection was not used in the final version, under the hood google uses it to keep the 
- floating information panel in place. Through goggle's AR Core it is made possible to detect vertical 
- and horizontal planes, to which other game objects can be anchored to!\\
+%  \subsection{Other AR Techniques}
+%  A couple of other Augmented Reality techniques were explored during the development of this app. 
+%  These techniques were implemented and worked really well as stand-alone, yet when combining the features, 
+%  these standalone techniques were omitted, as they would require infrastructural changes to the way that landmarks are stored and communicated, which I believe is out of the scope for this project. They are still left available in the unity project in case these would be implemented in the future yet as is, there is no way of accessing them through the App. 
+%  \subsubsection{Plane detection}
+%  Although raw plane detection was not used in the final version, under the hood google uses it to keep the 
+%  floating information panel in place. Through goggle's AR Core it is made possible to detect vertical 
+%  and horizontal planes, to which other game objects can be anchored to!\\
 
- In an example, plane detection was used to find a stable surface, and when the user clicks on a 
- plane, a 3D Game model is spawned in place and anchored to the plane. The user is also able to walk around 
- in the room, whilst the objects stay anchored to the plane! 
+%  In an example, plane detection was used to find a stable surface, and when the user clicks on a 
+%  plane, a 3D Game model is spawned in place and anchored to the plane. The user is also able to walk around 
+%  in the room, whilst the objects stay anchored to the plane! 
 
- \subsubsection{Image Recognition \& Augmented Images}
- Image Recognition was also a really interesting feature to use. 
- In the case of this project, a quick database manager was created in which a list of images could
-  be inserted. These images also need to have specific features, to be distinguishable from other places (for example some image of plain grey gravel is not very easily distinguishable, but an image of the earth is). And actions would be taken according to the image detected!\\
-
-In an example, an image of the earth was used as a key, and when this image is detected, a 3D spinning 
-globe would be overlayed on it, where the user can go around the globe and see all sides!
-This may have been able to be implemented in the app, yet as the landmark menu and the ARMode switching 
-works, It did not have much room to be used. (As in the near landmark menu, there is 
-no access to the camera), and the user may only use AR Mode when near a landmark. However, this 
-feature is also fully working, and may easily be implemented if a better use in the context of outdoor AR is identified. 
-
+%  \subsection{Image Recognition \& Augmented Images}
+%  Image Recognition was also a really interesting feature to use, yet unfortunately it is not used in the application. This may have been able to be implemented, yet with the current implementations 
+%  of the landmark menu and the ARMode switching, It did not make much sense to be used. (As in the near landmark menu, there is no access to the camera), and the user may only use AR Mode when near a landmark.\\
+%  However, this feature is also fully working, and may easily be implemented if a better use in the context of outdoor AR is identified. 
+%  In the case of this project, a quick database manager was created in which a list of images could
+%   be inserted. These images also need to have specific features, to be distinguishable from other places (for example some image of plain grey gravel is not very easily distinguishable, 
+%   but an image of the earth is). And actions would be taken according to the image detected!

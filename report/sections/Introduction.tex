@@ -19,15 +19,20 @@ appropriate. Thirdly, The application is to get information from a server, which
 landmarks, descriptions and their locations.  
 
 \subsection{Functionality Developed}
-\subsubsection{The Application}
-An android app was developed that the users can easily install and access. The app constantly uses the location service to consult the API server, providing the device's current
- location and retrieving a list of explorable landmarks. These landmarks are displayed on the application, as a list of potentially explorable landmarks,
- also giving a general bearing of where the 4user should head to reach the site.\\
- Upon entering the geofence, which means the location of the user is within relatively small proximity of a landmark (defined server-side), the app enables a landmark to be selectable, which when selected, the device enters an AR mode.\\
- When in AR mode, the user can get a floating 3D informational window that contains details about the landmark selected.
- \subsubsection{The API Server}
- The server is to contain a list of landmarks, including their names, locations, a description and maybe even a set of images. The server should allow a device to consult it with
- location-based information and a list of landmarks (within some proximity) is returned to the device, where the device uses the information given and lists them as potential landmarks to explore.\\
- The landmark information is to be stored on the server, so anything can be easily changed by changing the configurations of the server, and the mobile apps simply obtain newer information, 
- without needing to rebuild or update the applications. As this technology may be adapted to other uses, such as games, it would be really useful to be able to have an idea of where 
- players are.
+A system was developed comprised of two main components. An andorid application which in normal circumstances presents the user with a list of explorable landmarks, including 
+details such as the name, a short desciription, distance and bearing. This information is obtained from the secondary compoenent, being a centralised server, which contains information 
+such as the landmark data and the connected devices location. The server provides several endpoints, allowing the device to update the information in real time. If the server detects that 
+a device is withing a close proximity of a landmark (geofence), the application may enter Augmented Reality (AR) mode. In this mode, information, a description and a carousel if image 
+concerning the landmark is displayed on a floating Augmented Reality panel, which has it's position fixed in 3D world space through plane detection. 
+% \subsubsection{The Application}
+% An android app was developed that the users can easily install and access. The app constantly uses the location service to consult the API server, providing the device's current
+%  location and retrieving a list of explorable landmarks. These landmarks are displayed on the application, as a list of potentially explorable landmarks,
+%  also giving a general bearing of where the user should head to reach the site.\\
+%  Upon entering the geofence, which means the location of the user is within relatively small proximity of a landmark (defined server-side), the app enables a landmark to be selectable, which when selected, the device enters an AR mode.\\
+%  When in AR mode, the user can get a floating 3D informational window that contains details about the landmark selected.
+%  \subsubsection{The API Server}
+%  The server is to contain a list of landmarks, including their names, locations, a description and maybe even a set of images. The server should allow a device to consult it with
+%  location-based information and a list of landmarks (within some proximity) is returned to the device, where the device uses the information given and lists them as potential landmarks to explore.\\
+%  The landmark information is to be stored on the server, so anything can be easily changed by changing the configurations of the server, and the mobile apps simply obtain newer information, 
+%  without needing to rebuild or update the applications. As this technology may be adapted to other uses, such as games, it would be really useful to be able to have an idea of where 
+%  players are.
