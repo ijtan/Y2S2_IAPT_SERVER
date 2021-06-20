@@ -66,8 +66,8 @@ viewed in AR mode. Thus If we need to create a 30cm box, we can just set the siz
 \subsubsection{Information Panel Instantiation}
 Using the aforementioned techniques, we first create a generic prefab for the Information Panel. This includes the colouring, text placement, title placement, and 
 other things such as button placement and functionality etc. We also provide some relative sizing, which will be scaled accordingly when the prefab is used.\\ 
-The Instantiation of the information panel happens upon clicking on a desired entry from the landmarks menu, where the information of the landmark is transferred to the AR Mode scene.
-This information includes data such as the landmark title, a long description and an array image URLs. We then simply populate the prefab with the information provided, and instantiate 
+The Instantiation of the information panel happens upon clicking on the desired entry from the landmarks menu, where the information of the landmark is transferred to the AR Mode scene.
+This information includes data such as the landmark title, a long description and an array of image URLs. We then simply populate the prefab with the information provided and instantiate 
 the panel as a child of the world canvas, relative to the AR camera position. 
 The Pose driver then ensures that the panel stays fixed in the in-game position, whilst varying the AR camera position to 
 match real-world movements of the device. 
@@ -102,7 +102,7 @@ analysed and compares to other instances \cite{Samini2017}.
 Several tests were performed on-site, where the locations were actually based, all with the aims of exploring how the system handles different cases. 
 This included normal usability and even edge cases such as using the panel where we know plane detection will struggle.
 \\
-The panel was tested on floors that had discernable planes features, and on others where there was a repeated pattern (a known struggle-point of plane detection).\\
+Firstly, the panel was tested on floors that had discernable planes features, and on others where there was a repeated pattern (a known struggle-point of plane detection).\\
 \begin{figure}[!htb]
     \minipage{0.32\textwidth}
         \includegraphics[width=\linewidth]{bad_floor_panel_glitch}
@@ -122,7 +122,10 @@ The panel was tested on floors that had discernable planes features, and on othe
     \end{figure}
 
 \noindent
-In order to test the bearing accuracy, the north pole was temporarily added as a landmark, and a general comparison between the bearing shown and a compass was used.
+Figures \ref{fig:bad_panel}, \ref{fig:panel_text} and \ref{fig:panel_img}
+show the panels in action on the different conditions tested. As can be seen, in good conditions, the panels stay in place 
+and are also interactable, where one can see text and the carousel of images, behaving as expected.
+Next, in order to test the bearing accuracy, the north pole was temporarily added as a landmark, and a general comparison between the bearing shown and a compass was used.
 The application was also used with a subpar GPS connection to see the impact on the overall experience (as some parts of Mdina do not have good coverage).
 
 \begin{figure}[!htb]
@@ -138,4 +141,6 @@ The application was also used with a subpar GPS connection to see the impact on 
     \endminipage
     \end{figure}
 \noindent
+Finally, Figures \ref{fig:explor_lands} and \ref{fig:active_land} show the landmarks menu, both 
+when the user is not inside the geofence and also how the UI changes when the user is inside.\\
 Further testing is shown in the video, as it's the best way to convey the experience.
