@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 import json
 import os
 from flask.helpers import send_from_directory
-import numpy as numpy
 import device
 
 # import external_data

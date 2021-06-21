@@ -1,6 +1,5 @@
 % \section{}
-\pagebreak
- \section*{Appendix 1 - Image Recognition \& Augmentation}
+ \subsection*{Appendix 1 - Image Recognition \& Augmentation}
  Image Recognition was also a really interesting feature to use, yet unfortunately, it is not used in the application. This may have been able to be implemented, yet with the current implementations 
  of the landmark menu and the ARMode switching, It did not make much sense to be used. (As in the near landmark menu, there is no access to the camera), and the user may only use AR Mode when near a landmark.\\
  However, this feature is also fully working, and may easily be implemented if a better use in the context of outdoor AR is identified. 
@@ -20,5 +19,26 @@ The image was recognized from different angles and light settings whilst trackin
         \includegraphics[width=\linewidth]{earth_ov}
         \caption{3D sphere overlayed}
         \label{fig:earth_ov}
+    \endminipage
+    \end{figure}
+
+\subsection*{Appendix 2 - Code \& Resources}
+The APK may be accessed: \url{https://drive.google.com/file/d/1oZajDwzfWgGPu2Yl4Hjmc7vrewc3CcyI/view?usp=sharing}\\
+A git of the unity project: \url{https://github.com/ijtan/Y2S2_IAPT}\\
+A git of the server-side: \url{https://github.com/ijtan/Y2S2_IAPT_SERVER}\\
+\\\noindent
+\textbf{\emph{Kindly note that for the application to display the landmarks, the server must be running, and the URI 
+must be added within the app's settings menu.}} The server may be run by running the 'server.py' file, and having the python packages 'flask' and 'haversine' installed.\\
+Do not hesitate to contact me in case further instructions are required!
+\begin{figure}[!htb]
+    \minipage{0.4\textwidth}
+        \includegraphics[width=\linewidth]{highlight_settings}
+            \caption{Settings Menu Icon}
+            \label{fig:earth_og}
+    \endminipage\hfill
+    \minipage{0.4\textwidth}
+        \includegraphics[width=\linewidth]{settingsMenu}
+        \caption{Setting Menu where URL is to be inserted}
+        \label{fig:settmen}
     \endminipage
     \end{figure}
